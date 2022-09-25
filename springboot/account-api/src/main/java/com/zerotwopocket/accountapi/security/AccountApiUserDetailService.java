@@ -1,6 +1,7 @@
-package com.zerotwopocket.accountapi.service;
+package com.zerotwopocket.accountapi.security;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
+import com.zerotwopocket.accountapi.service.UserAccountService;
 import com.zerotwopocket.security.service.AuthenticationUserDetailService;
 import java.util.Collections;
 import org.springframework.security.core.userdetails.User;
