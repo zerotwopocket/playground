@@ -3,13 +3,10 @@ package com.zerotwopocket.security.token;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.zerotwopocket.security.service.AuthenticationConfigConstants;
+import java.util.Date;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
-@Component
 public class TokenGenerator {
   public String generate(Authentication authentication) {
     return JWT.create()

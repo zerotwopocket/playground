@@ -17,8 +17,9 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @Slf4j
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
   private final TokenVerifier tokenVerifier;
-  public JWTAuthorizationFilter(AuthenticationManager authenticationManager,
-      TokenVerifier tokenVerifier) {
+
+  public JWTAuthorizationFilter(
+      AuthenticationManager authenticationManager, TokenVerifier tokenVerifier) {
     super(authenticationManager);
     this.tokenVerifier = tokenVerifier;
   }
@@ -50,6 +51,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     // TODO set claims/roles?
 
     if (decodedJWT.getSubject() == null) return null;
-    return new UsernamePasswordAuthenticationToken(decodedJWT.getSubject(), null, new ArrayList<>());
+    return new UsernamePasswordAuthenticationToken(
+        decodedJWT.getSubject(), null, new ArrayList<>());
   }
 }

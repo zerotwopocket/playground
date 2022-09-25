@@ -1,7 +1,7 @@
 package com.zerotwopocket.security.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zerotwopocket.security.model.ApiUser;
+import com.zerotwopocket.security.model.Account;
 import com.zerotwopocket.security.token.TokenGenerator;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
       HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
     try {
-      ApiUser apiUser = new ObjectMapper().readValue(request.getInputStream(), ApiUser.class);
+      Account account = new ObjectMapper().readValue(request.getInputStream(), Account.class);
       return authenticationManager.authenticate(
           new UsernamePasswordAuthenticationToken(
-              apiUser.getUsername(), apiUser.getPassword(), new ArrayList<>()));
+              account.getUsername(), account.getPassword(), new ArrayList<>()));
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new AuthException(e.getMessage());
     }
   }
 

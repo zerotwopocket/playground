@@ -2,6 +2,7 @@ package com.zerotwopocket.security.service;
 
 public class AuthenticationConfigConstants {
   private AuthenticationConfigConstants() {}
+
   public static String SECRET = "tankinamall";
   // public static long EXPIRATION_TIME = 864000000; // 10 days
   public static long EXPIRATION_TIME = 60000; // 1 min

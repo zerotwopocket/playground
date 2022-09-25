@@ -16,17 +16,17 @@ import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class TokenGeneratorTest {
-  @Mock
-  private Authentication authentication;
+  @Mock private Authentication authentication;
 
   @Test
   void execute() {
     TokenGenerator tokenGenerator = new TokenGenerator();
-    UserDetails abcd = User.builder()
-        .username("abcd")
-        .password("abcd")
-        .authorities(Collections.emptyList())
-        .build();
+    UserDetails abcd =
+        User.builder()
+            .username("abcd")
+            .password("abcd")
+            .authorities(Collections.emptyList())
+            .build();
     given(authentication.getPrincipal()).willReturn(abcd);
     String execute = tokenGenerator.generate(authentication);
     assertThat(execute).isNotNull();
