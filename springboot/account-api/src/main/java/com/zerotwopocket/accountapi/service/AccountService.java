@@ -2,7 +2,7 @@ package com.zerotwopocket.accountapi.service;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
 import com.zerotwopocket.accountapi.repo.UserAccountRepository;
-import com.zerotwopocket.accountapi.web.UserAccountRequest;
+import com.zerotwopocket.accountapi.web.UserAccountDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,12 +14,13 @@ public class AccountService {
   private final UserAccountRepository userAccountRepository;
   private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-  public UserAccount create(UserAccountRequest userAccount) {
+  public UserAccount create(UserAccountDto userAccount) {
     return userAccountRepository.save(map(userAccount));
   }
 
-  private UserAccount map(UserAccountRequest request){
+  private UserAccount map(UserAccountDto request){
     UserAccount acct = new UserAccount();
+    acct.setId(request.getId());
     acct.setUsername(request.getUsername());
     acct.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
     return acct;

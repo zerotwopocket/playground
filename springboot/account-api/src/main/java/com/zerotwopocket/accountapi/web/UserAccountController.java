@@ -34,13 +34,13 @@ public class UserAccountController {
 
   @PostMapping("create")
   @ResponseBody
-  public UserAccount createAccount(@RequestBody UserAccountRequest userAccount) {
+  public UserAccount createAccount(@RequestBody UserAccountDto userAccount) {
     return accountService.create(userAccount);
   }
 
   @PostMapping("update")
   @ResponseBody
-  public UserAccount update(@RequestBody UserAccountRequest userAccount) {
+  public UserAccount update(@RequestBody UserAccountDto userAccount) {
     return accountService.create(userAccount);
   }
 
