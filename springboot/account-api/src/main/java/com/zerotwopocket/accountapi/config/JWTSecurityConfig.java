@@ -21,7 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class JWTSecurityConfig {
   private final BCryptPasswordEncoder bCryptPasswordEncoder;
   private final AuthenticationUserDetailService<UserAccount> authenticationUserDetailService;
