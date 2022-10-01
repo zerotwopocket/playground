@@ -34,7 +34,8 @@ public class UserAccountController {
 
   @PostMapping("")
   @ResponseBody
-  public UserAccount createOrUpdate(@RequestBody UserAccountDto userAccount) {
-    return accountService.createOrUpdate(userAccount);
+  public UserAccountResponseDto createOrUpdate(@RequestBody UserAccountDto userAccount) {
+    UserAccount result = accountService.createOrUpdate(userAccount);
+    return new UserAccountResponseDto(result);
   }
 }

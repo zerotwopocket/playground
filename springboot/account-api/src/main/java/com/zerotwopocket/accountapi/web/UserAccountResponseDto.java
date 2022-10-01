@@ -9,11 +9,10 @@ import lombok.Data;
 public class UserAccountResponseDto {
   private Long id;
   private String username;
-  private String password;
+
 
   public UserAccountResponseDto(UserAccount userAccount){
     this.id = userAccount.getId();
     this.username = userAccount.getUsername();
-    this.password = userAccount.getPassword();
   }
 }

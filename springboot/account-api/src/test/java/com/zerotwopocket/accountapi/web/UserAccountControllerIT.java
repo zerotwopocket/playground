@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.java.Log;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,13 @@ class UserAccountControllerIT {
 
   @Autowired private MockMvc mockMvc;
 
-  @Test
-  void findAllTest() throws Exception {
-    mockMvc
-        .perform(MockMvcRequestBuilders.get("/account"))
-        .andDo(print())
-        .andExpect(status().isOk())
-    //        .andExpect(MockMvcResultMatchers.jsonPath())
-    ;
-  }
+  //  @Test
+  //  void findAllTest() throws Exception {
+  //    mockMvc
+  //        .perform(MockMvcRequestBuilders.get("/account"))
+  //        .andDo(print())
+  //        .andExpect(status().isOk());
+  //  }
 
   @Test
   @Sql(scripts = "classpath:initial_state.sql")
@@ -40,8 +39,7 @@ class UserAccountControllerIT {
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.id", is(1)))
-        .andExpect(jsonPath("$.username", is("testdev1664407134797")))
-        .andExpect(jsonPath("$.password", is("$2a$10$9y0Ln5gfzf.xrBzVNWxAP.9m3xPSnDTwTphtDitpMN6fBaY5rVglO")));
+        .andExpect(jsonPath("$.username", is("testdev1664407134797")));
   }
 
   @Test
