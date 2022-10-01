@@ -2,7 +2,6 @@ package com.zerotwopocket.accountapi.web;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
 import com.zerotwopocket.accountapi.service.AccountService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,16 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserAccountController {
   private final AccountService accountService;
 
-  @GetMapping("")
-  @ResponseBody
-  public List<UserAccount> findAll() {
-    return accountService.findAll();
-  }
-
   @GetMapping("{id}")
   @ResponseBody
-  public UserAccount update(@PathVariable("id") Long id) {
-    return accountService.find(id);
+  public UserAccountResponseDto findById(@PathVariable("id") Long id) {
+    UserAccount userAccount = accountService.find(id);
+    return new UserAccountResponseDto(userAccount);
   }
 
   @PostMapping("create")
@@ -38,15 +32,9 @@ public class UserAccountController {
     return accountService.create(userAccount);
   }
 
-  @PostMapping("update")
+  @PostMapping("")
   @ResponseBody
-  public UserAccount update(@RequestBody UserAccountDto userAccount) {
-    return accountService.create(userAccount);
-  }
-
-  @PostMapping("delete/{id}")
-  @ResponseBody
-  public void delete(@PathVariable("id") Long id) {
-    accountService.delete(id);
+  public UserAccount createOrUpdate(@RequestBody UserAccountDto userAccount) {
+    return accountService.createOrUpdate(userAccount);
   }
 }
