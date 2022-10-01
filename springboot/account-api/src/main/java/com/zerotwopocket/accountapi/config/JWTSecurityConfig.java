@@ -9,7 +9,7 @@ import com.zerotwopocket.security.token.TokenVerifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,6 +22,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity(debug = true)
+@Profile("!nosecurity")
 public class JWTSecurityConfig {
   private final BCryptPasswordEncoder bCryptPasswordEncoder;
   private final AuthenticationUserDetailService<UserAccount> authenticationUserDetailService;
@@ -46,8 +47,9 @@ public class JWTSecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
             auth ->
-                auth.antMatchers(HttpMethod.POST, "/account/create")
-                    .permitAll()
+                auth
+//                    .antMatchers(HttpMethod.POST, "/account/create")
+//                    .permitAll()
                     .anyRequest()
                     .authenticated())
         .addFilter(new JWTAuthenticationFilter(authenticationManager, tokenGenerator))
