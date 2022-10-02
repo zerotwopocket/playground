@@ -1,6 +1,7 @@
 package com.zerotwopocket.accountapi.domain;
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ public class Role {
   private Long id;
   private String name;
 
-  @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER)
+  @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   private Set<UserAccount> roles;
 
   @ManyToMany(mappedBy = "permissions",fetch = FetchType.EAGER)
