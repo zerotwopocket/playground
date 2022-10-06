@@ -22,7 +22,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity(debug = true)
-@Profile("!nosecurity")
+@Profile("!devlocal-no-sec")
 public class JWTSecurityConfig {
   private final BCryptPasswordEncoder bCryptPasswordEncoder;
   private final AuthenticationUserDetailService<UserAccount> authenticationUserDetailService;
