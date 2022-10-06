@@ -1,7 +1,6 @@
-package com.zerotwopocket.accountapi.web;
+package com.zerotwopocket.accountapi.resource.account;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
-import com.zerotwopocket.accountapi.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

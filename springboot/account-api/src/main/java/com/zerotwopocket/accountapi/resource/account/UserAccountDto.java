@@ -1,4 +1,4 @@
-package com.zerotwopocket.accountapi.web;
+package com.zerotwopocket.accountapi.resource.account;
 
 import lombok.Data;
 

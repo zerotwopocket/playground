@@ -1,8 +1,7 @@
-package com.zerotwopocket.accountapi.service;
+package com.zerotwopocket.accountapi.resource.account;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
 import com.zerotwopocket.accountapi.repo.UserAccountRepository;
-import com.zerotwopocket.accountapi.web.UserAccountDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

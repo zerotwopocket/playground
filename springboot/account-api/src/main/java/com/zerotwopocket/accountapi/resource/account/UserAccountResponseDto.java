@@ -1,4 +1,4 @@
-package com.zerotwopocket.accountapi.web;
+package com.zerotwopocket.accountapi.resource.account;
 
 import com.zerotwopocket.accountapi.domain.UserAccount;
 import lombok.AllArgsConstructor;
