@@ -2,6 +2,7 @@ package com.zerotwopocket.accountapi.domain;
 
 import java.util.List;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +28,7 @@ public class UserAccount {
 
   private String password;
 
-  @ManyToMany(fetch = FetchType.EAGER)
+  @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   @JoinTable(
       name = "account_role",
       joinColumns = @JoinColumn(name = "account_id"),
