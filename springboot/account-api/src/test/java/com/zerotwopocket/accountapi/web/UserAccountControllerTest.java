@@ -4,7 +4,8 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.zerotwopocket.accountapi.service.AccountService;
+import com.zerotwopocket.accountapi.resource.account.UserAccountController;
+import com.zerotwopocket.accountapi.resource.account.AccountService;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
