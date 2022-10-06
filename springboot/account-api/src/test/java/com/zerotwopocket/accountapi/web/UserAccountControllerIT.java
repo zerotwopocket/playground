@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.java.Log;
+import com.zerotwopocket.accountapi.resource.account.UserAccountDto;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +22,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 class UserAccountControllerIT {
 
   @Autowired private MockMvc mockMvc;
-
-  //  @Test
-  //  void findAllTest() throws Exception {
-  //    mockMvc
-  //        .perform(MockMvcRequestBuilders.get("/account"))
-  //        .andDo(print())
-  //        .andExpect(status().isOk());
-  //  }
 
   @Test
   @Sql(scripts = "classpath:initial_state.sql")
